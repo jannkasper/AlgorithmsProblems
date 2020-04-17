@@ -8,6 +8,7 @@ import java.util.PriorityQueue;
 public class MergeManyLists {
 
     public static Node mergeMinHeap (Node[] headsArray) {
+        // dummy node
         Node mainHead = new Node(0,null);
         Node mainTail = mainHead;
 
