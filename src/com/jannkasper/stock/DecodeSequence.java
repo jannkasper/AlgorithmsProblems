@@ -1,4 +1,4 @@
-package com.jannkasper.Stock;
+package com.jannkasper.stock;
 
 import java.util.Stack;
 
