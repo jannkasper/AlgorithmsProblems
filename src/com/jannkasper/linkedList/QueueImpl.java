@@ -1,10 +1,10 @@
 package com.jannkasper.linkedList;
 
-public class Queue {
+public class QueueImpl {
     private Node top;
     private int size;
 
-    public Queue() {
+    public QueueImpl() {
         this.top = null;
         this.size = 0;
     }
@@ -48,7 +48,7 @@ public class Queue {
     }
     public static void main(String[] args)
     {
-        Queue q = new Queue();
+        QueueImpl q = new QueueImpl();
         q.enqueue(1);
         q.enqueue(2);
         q.enqueue(3);

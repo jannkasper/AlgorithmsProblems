@@ -1,9 +1,9 @@
 package com.jannkasper.linkedList;
 
-public class Stack {
+public class StackImpl {
    private Node top;
 
-    public Stack() {
+    public StackImpl() {
         this.top = null;
     }
 
@@ -37,7 +37,7 @@ public class Stack {
     }
     public static void main(String[] args)
     {
-        Stack stack = new Stack();
+        StackImpl stack = new StackImpl();
 
         stack.push(1);
         stack.push(2);
