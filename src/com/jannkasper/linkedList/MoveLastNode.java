@@ -1,7 +1,9 @@
 package com.jannkasper.linkedList;
 
 /**
- * Move last node to front in a given Linked list
+ * 29. Move last node to front in a given Linked list
+ * Input: 1 -> 9 -> 8 -> 7 -> 6 -> 6 -> 5 -> 4 -> 3 -> 2
+ * Output: 2 -> 1 -> 9 -> 8 -> 7 -> 6 -> 6 -> 5 -> 4 -> 3
  */
 public class MoveLastNode {
 
@@ -10,6 +12,9 @@ public class MoveLastNode {
             return head;
         }
         Node current = head;
+
+        // set head if current.next node is the last node
+        // TIME COMPLEXITY O(n)
         while (current.next != null) {
             if (current.next.next == null) {
                 current.next.next = head;
@@ -24,12 +29,15 @@ public class MoveLastNode {
     }
 
     public static Node recurse(Node head, Node current) {
+        // set head if current.next node is the last node
         if (current.next.next == null){
             current.next.next = head;
             head = current.next;
             current.next = null;
             return head;
         }
+
+        // TIME COMPLEXITY O(n)
         return recurse(head,current.next);
     }
 

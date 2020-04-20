@@ -46,8 +46,8 @@ public class QueueImpl {
         }
         return tail.data;
     }
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         QueueImpl q = new QueueImpl();
         q.enqueue(1);
         q.enqueue(2);

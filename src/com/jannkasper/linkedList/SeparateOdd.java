@@ -1,22 +1,29 @@
 package com.jannkasper.linkedList;
 
 /**
- * Rearrange a Linked List by Separating Odd Nodes from the Even Ones
+ * 37. Rearrange a Linked List by Separating Odd Nodes from the Even Ones
+ * Input: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
+ * Output: 2 -> 4 -> 6 -> 8 -> 10 -> 1 -> 3 -> 5 -> 7 -> 9
  */
 public class SeparateOdd {
 
-    public static Node rearrangeEvenOdd (Node even, Node rest) {
+    public static Node rearrangeEvenOdd (Node frontHead, Node rest) {
+        // we have reached the end of the list
         if (rest.next == null) return rest;
+
+        // insert even number before unsorted rest
         if (rest.next.data%2 == 0) {
             Node temp = rest.next;
             rest.next = rest.next.next;
-            temp.next = even.next;
-            even.next = temp;
-            rearrangeEvenOdd(even.next, rest);
+            temp.next = frontHead.next;
+            frontHead.next = temp;
+
+            // TIME COMPLEXITY O(n)
+            rearrangeEvenOdd(frontHead.next, rest);
         } else {
-            rearrangeEvenOdd(even, rest.next);
+            rearrangeEvenOdd(frontHead, rest.next);
         }
-        return even;
+        return frontHead;
     }
 
     public static Node rearrangeEvenOdd (Node head) {
@@ -26,12 +33,7 @@ public class SeparateOdd {
         return dummy.next;
     }
 
-
-
-
-
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         // input keys
         int[] keys = { 1,2,3,4,5,6,7,8,9,10 };
 
@@ -41,6 +43,8 @@ public class SeparateOdd {
         }
 
         head = rearrangeEvenOdd(head);
+
+        // print result
         head.print();
 
     }

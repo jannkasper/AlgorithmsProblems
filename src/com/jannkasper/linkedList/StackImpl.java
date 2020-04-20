@@ -35,8 +35,8 @@ public class StackImpl {
         System.out.println("Stack is empty");
         return -1;
     }
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         StackImpl stack = new StackImpl();
 
         stack.push(1);

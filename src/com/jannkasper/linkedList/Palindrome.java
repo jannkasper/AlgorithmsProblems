@@ -1,9 +1,11 @@
 package com.jannkasper.linkedList;
 
 /**
- * Check if Linked List is Palindrome or not
+ * 28. Check if Linked List is Palindrome or not
+ * Input: 1 -> 3 -> 5 -> 5 -> 3 -> 1
+ * Output: true
  */
-public class Palindorme {
+public class Palindrome {
     static class NodeWrapper {
         public Node node;
 
@@ -20,35 +22,17 @@ public class Palindorme {
         if (right == null) {
             return true;
         }
-
+        // Recursive to compare front node with the last
         boolean result = palindromeRecurseWithWrapper(left, right.next) && left.node.data == right.data;
 
+        // move left to next node
         left.node = left.node.next;
 
         return result;
     }
 
-    public static boolean palindromeRecurse(Node head) {
-        if (head == null) {
-            return false;
-        }
-        if (head.next == null) return true;
-        if (head.next.next == null && head.data == head.next.data) return true;
-        Node current = head;
-        while (current.next.next != null) {
-            current = current.next;
-        }
-        if (head.data != current.next.data) {
-            return false;
-        }
-        current.next = null;
-        return  palindromeRecurse(head.next);
-    }
-
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         // input keys
-//        int[] keys = { 1,3,5,3,1 };
         int[] keys = { 1,3,5,5,3,1 };
 
         Node head = null;
@@ -57,6 +41,8 @@ public class Palindorme {
         }
 
         head.print();
+
+        // print result
         System.out.println(palindromeRecurseWithWrapper(head));
 
     }

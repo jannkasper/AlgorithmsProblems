@@ -1,16 +1,23 @@
 package com.jannkasper.linkedList;
 
 /**
- * Detect  Cycle in alinked list (Floyd's Cycle Detection Algorithm)
+ * 31. Detect  Cycle in alinked list (Floyd's Cycle Detection Algorithm)
+ * Input: { 1, 2, 3, 4, 5 }
+ * Output: Cycle Found
  */
 public class DetectCycle {
 
     public static boolean detectCycle (Node head) {
+        // create two pointers
         Node slow = head;
         Node fast = head;
+
+        // iterate thru cycle by two pointers with different speed
+        // TIME COMPLECITY O(n)
         while (fast != null && fast.next != null) {
             fast = fast.next;
 
+            // compare values after first fast step
             if (slow == fast) {
                 return true;
             }
@@ -18,6 +25,7 @@ public class DetectCycle {
             fast = fast.next;
             slow = slow.next;
 
+            // compare values after second fast step
             if (slow == fast) {
                 return true;
             }
@@ -26,10 +34,7 @@ public class DetectCycle {
         return false;
     }
 
-
-
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         // input keys
         int[] keys = { 1,2,3,4,5 };
 
@@ -39,11 +44,11 @@ public class DetectCycle {
         }
         head.next.next.next.next.next = head.next.next;
 
+        // print result
         if (detectCycle(head)) {
             System.out.println("Cycle Found");
         } else {
             System.out.println("No Cycle Found");
         }
-
     }
 }
